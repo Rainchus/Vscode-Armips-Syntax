@@ -76,7 +76,7 @@
       "patterns": [
         {
           "name": "support.function.instruction.armips",
-          "match": "(?i)\\b(ADD|ADDI|ADDIU|ADDU|AND|ANDI|BEQ|BEQL|BGEZ|BGEZAL|BGTZ|BLEZ|BLTZ|BLTZL|BLTZAL|BNE|BNEL|BNEZ|BNEZL|BREAK|DIV|DIVU|J|JAL|JALR|JR|LB|LBU|LH|LHU|LI|LUI|LW|LWL|LWR|MFHI|MFLO|MTHI|MTLO|MULT|MULTU|NOR|OR|ORI|SB|SH|SLL|SLLV|SLT|SLTI|SLTIU|SLTU|SRA|SRAV|SRL|SRLV|SUB|SUBU|SW|SWL|SWR|LD|SD|LWR|SWR|SYSCALL|XOR|XORI|NOP)\\b"
+          "match": "(?i)\\b(ADD|ADDI|ADDIU|ADDU|AND|ANDI|BEQ|BEQL|BGEZ|BGEZAL|BGTZ|BLEZ|BLTZ|BLTZL|BLTZAL|BNE|BNEL|BNEZ|BNEZL|BREAK|DIV|DIVU|J|JAL|JALR|JR|LB|LBU|LH|LHU|LI|LUI|LW|LWL|LWR|MFHI|MFLO|MTHI|MTLO|MULT|MULTU|NOR|OR|ORI|SB|SH|SLL|SLLV|SLT|SLTI|SLTIU|SLTU|SRA|SRAV|SRL|SRLV|SUB|SUBU|SW|SWL|SWR|LD|SD|LWR|SWR|SYSCALL|XOR|XORI|NOP|CVT.S.W|CVT.D.W|CVT.W.S|CVT.D.S|CVT.S.D|CVT.W.D)\\b"
         }
       ]
     },
@@ -84,11 +84,11 @@
       "patterns": [
         {
           "name": "variable.language.register.armips",
-          "match": "\\b(zero|at|v[0-1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|sp|fp|ra|r0|r[1-9]|r[12][0-9]|r3[01])\\b"
+          "match": "\\b(zero|at|v[0-1]|a[0-3]|t[0-9]|s[0-8]|k[0-1]|gp|sp|fp|ra|r0|f([0-9]|[12][0-9]|3[01])|r[1-9]|r[12][0-9]|r3[01])\\b"
         },
         {
           "name": "variable.language.register.armips",
-          "match": "\\$(zero|at|v[0-1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|sp|fp|ra|[0-9]|[12][0-9]|3[01])\\b"
+          "match": "\\$(zero|at|v[0-1]|a[0-3]|t[0-9]|s[0-8]|k[0-1]|gp|sp|fp|ra|[0-9]|[12][0-9]|3[01])\\b"
         }
       ]
     },
