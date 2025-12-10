@@ -1,0 +1,139 @@
+{
+  "name": "armips MIPS Assembly",
+  "scopeName": "source.armips",
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#directives"
+    },
+    {
+      "include": "#jal_calls"
+    },
+    {
+      "include": "#instructions"
+    },
+    {
+      "include": "#registers"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#labels"
+    },
+    {
+      "include": "#strings"
+    }
+  ],
+  "repository": {
+    "jal_calls": {
+      "patterns": [
+        {
+          "match": "(?i)\\b(JAL)\\s+([a-zA-Z_][a-zA-Z0-9_]*)",
+          "captures": {
+            "1": {
+              "name": "support.function.instruction.armips"
+            },
+            "2": {
+              "name": "keyword.control.armips"
+            }
+          }
+        }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.block.armips",
+          "begin": "/\\*",
+          "end": "\\*/"
+        },
+        {
+          "name": "comment.line.double-slash.armips",
+          "match": "//.*$"
+        }
+      ]
+    },
+    "directives": {
+      "patterns": [
+        {
+          "name": "entity.name.type.armips",
+          "match": "\\.definelabel\\b"
+        },
+        {
+          "name": "keyword.control.directive.armips",
+          "match": "\\.(org|orga|headersize|align|fill|skip|ascii|asciiz|byte|halfword|word|float|double|include|incbin|notice|warning|error|area|region|define|macro|endmacro|function|endfunction|if|elseif|else|endif|ifdef|ifndef|loadtable|table|autoregion|pool|open|close|create|createfile|output|outputsize|sym|fixloaddelay|erroronwarning|relativeinclude)\\b"
+        },
+        {
+          "name": "entity.name.type.armips",
+          "match": "\\bequ\\b"
+        }
+      ]
+    },
+    "instructions": {
+      "patterns": [
+        {
+          "name": "support.function.instruction.armips",
+          "match": "(?i)\\b(ADD|ADDI|ADDIU|ADDU|AND|ANDI|BEQ|BEQZ|BEQL|BGEZ|BGEZAL|BGEZALL|BGEZL|BGTZ|BGTZL|BLEZ|BLEZL|BLTZ|BLTZL|BLTZAL|BLTZALL|BNE|BNEL|BNEZ|BNEZL|BREAK|CACHE|CFC1|COP0|COP1|COP2|CTC1|DADD|DADDI|DADDIU|DADDU|DDIV|DDIVU|DIV|DIVU|DMFC0|DMFC1|DMTC0|DMTC1|DMULT|DMULTU|DSLL|DSLL32|DSLLV|DSRA|DSRA32|DSRAV|DSRL|DSRL32|DSRLV|DSUB|DSUBU|ERET|J|JAL|JALR|JR|LB|LBU|LD|LDC1|LDL|LDR|LH|LHU|LI|LL|LLD|LUI|LW|LWC1|LWL|LWR|LWU|MFC0|MFC1|MFC2|MFHI|MFLO|MTC0|MTC1|MTC2|MTHI|MTLO|MULT|MULTU|NOR|OR|ORI|SB|SC|SCD|SD|SDC1|SDL|SDR|SH|SLL|SLLV|SLT|SLTI|SLTIU|SLTU|SRA|SRAV|SRL|SRLV|SUB|SUBU|SW|SWC1|SWL|SWR|SYNC|SYSCALL|TEQ|TEQI|TGE|TGEI|TGEIU|TGEU|TLT|TLTI|TLTIU|TLTU|TNE|TNEI|XOR|XORI|NOP|ABS\\.S|ABS\\.D|ADD\\.S|ADD\\.D|C\\.EQ\\.S|C\\.EQ\\.D|C\\.F\\.S|C\\.F\\.D|C\\.LE\\.S|C\\.LE\\.D|C\\.LT\\.S|C\\.LT\\.D|C\\.NGE\\.S|C\\.NGE\\.D|C\\.NGL\\.S|C\\.NGL\\.D|C\\.NGLE\\.S|C\\.NGLE\\.D|C\\.NGT\\.S|C\\.NGT\\.D|C\\.OLE\\.S|C\\.OLE\\.D|C\\.OLT\\.S|C\\.OLT\\.D|C\\.SEQ\\.S|C\\.SEQ\\.D|C\\.SF\\.S|C\\.SF\\.D|C\\.UEQ\\.S|C\\.UEQ\\.D|C\\.ULE\\.S|C\\.ULE\\.D|C\\.ULT\\.S|C\\.ULT\\.D|C\\.UN\\.S|C\\.UN\\.D|CEIL\\.W\\.S|CEIL\\.W\\.D|CVT\\.D\\.S|CVT\\.D\\.W|CVT\\.S\\.D|CVT\\.S\\.W|CVT\\.W\\.D|CVT\\.W\\.S|DIV\\.S|DIV\\.D|FLOOR\\.W\\.S|FLOOR\\.W\\.D|MOV\\.S|MOV\\.D|MUL\\.S|MUL\\.D|NEG\\.S|NEG\\.D|ROUND\\.W\\.S|ROUND\\.W\\.D|SQRT\\.S|SQRT\\.D|SUB\\.S|SUB\\.D|TRUNC\\.W\\.S|TRUNC\\.W\\.D|BC1F|BC1FL|BC1T|BC1TL)\\b"
+        }
+      ]
+    },
+    "registers": {
+      "patterns": [
+        {
+          "name": "variable.language.register.armips",
+          "match": "\\b(zero|at|v[0-1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|sp|fp|ra|r0|f([0-9]|[12][0-9]|3[01])|r[1-9]|r[12][0-9]|r3[01])\\b"
+        },
+        {
+          "name": "variable.language.register.armips",
+          "match": "\\$(zero|at|v[0-1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|sp|fp|ra|[0-9]|[12][0-9]|3[01])\\b"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.hex.armips",
+          "match": "\\b0x[0-9A-Fa-f]+\\b"
+        },
+        {
+          "name": "constant.numeric.binary.armips",
+          "match": "\\b0b[01]+\\b"
+        },
+        {
+          "name": "constant.numeric.decimal.armips",
+          "match": "\\b[0-9]+\\b"
+        }
+      ]
+    },
+    "labels": {
+      "patterns": [
+        {
+          "name": "keyword.control.armips",
+          "match": "^[a-zA-Z_][a-zA-Z0-9_]*:"
+        },
+        {
+          "name": "keyword.control.armips",
+          "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.armips",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.armips",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "armips-assembly",
+  "displayName": "armips MIPS Assembly",
+  "description": "Syntax highlighting for armips MIPS assembly language",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "armips",
+        "aliases": [
+          "armips",
+          "MIPS Assembly"
+        ],
+        "extensions": [
+          ".asm",
+          ".s"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "armips",
+        "scopeName": "source.armips",
+        "path": "./syntaxes/armips.tmLanguage.json"
+      }
+    ]
+  }
+}
